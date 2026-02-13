@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
+    "build:firefox": "plasmo build --target=firefox-mv2 --zip",
     "package": "plasmo package"
   },
   "dependencies": {
@@ -32,6 +33,17 @@
     ],
     "permissions": [
       "storage"
-    ]
+    ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "shopby-onliner@famouse.dev",
+        "strict_min_version": "109.0",
+        "data_collection_permissions": {
+          "required": [
+            "none"
+          ]
+        }
+      }
+    }
   }
 }
