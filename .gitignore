@@ -1,5 +1,5 @@
-
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# IDE - IntelliJ IDEA (WebStorm, PHPStorm, etc.)
+/.idea
 
 # dependencies
 /node_modules
