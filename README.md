@@ -1,33 +1,327 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+# 🛒 ShopBy + Onliner Overlay
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./i18n/README.en.md)
+[![ru](https://img.shields.io/badge/lang-ru-blue.svg)](./README.md)
 
-```bash
-pnpm dev
-# or
-npm run dev
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-Chrome%20%7C%20Firefox%20-orange)
+
+</div>
+
+---
+
+Расширение для браузера, которое автоматически отображает цены с Shop.by на страницах товаров Onliner.by.
+
+---
+
+## 🎯 Возможности
+
+- ✅ **Автоматический поиск цен** — показывает цены с Shop.by прямо на Onliner.by
+- ⚡ **Быстрая загрузка** — кеширование результатов на 6 часов
+- 🔗 **Прямые ссылки** — клик по цене ведёт на Shop.by
+- 📊 **Количество предложений** — показывает сколько магазинов продают товар
+- 🔒 **Приватность** — не собирает персональные данные
+
+---
+
+## 📸 Скриншоты
+
+<details>
+<summary>Нажми чтобы увидеть примеры работы</summary>
+
+### Каталог товаров
+Цены отображаются в списке товаров:
+```
+БУДЕТ ДОБАВЛЕНО ПОЗЖЕ
 ```
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
+### Карточка товара
+Цена добавляется под основной ценой Onliner:
+```
+БУДЕТ ДОБАВЛЕНО ПОЗЖЕ
+```
 
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
+### Избранное
+Цены отображаются списке избранного:
 
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
+```
+БУДЕТ ДОБАВЛЕНО ПОЗЖЕ
+```
 
-## Making production build
+### Сравнение
+Цены отображаются в сравнении:
+```
+БУДЕТ ДОБАВЛЕНО ПОЗЖЕ
+```
 
-Run the following:
+</details>
 
+---
+
+## 🚀 Установка
+
+### Chrome / Edge / Opera / Brave
+
+1. Перейди в [Chrome Web Store](#) (ссылка будет после публикации)
+2. Нажми "Добавить в Chrome"
+3. Подтверди установку
+
+### Firefox
+
+1. Перейди на [Firefox Add-ons](#) (ссылка будет после публикации)
+2. Нажми "Добавить в Firefox"
+3. Подтверди установку
+
+### Установка из исходников (для разработчиков)
+
+См. раздел [Сборка из исходников](#-сборка-из-исходников)
+
+---
+
+## 🔧 Использование
+
+Расширение работает автоматически после установки:
+
+1. Открой любую страницу на **catalog.onliner.by** или **www.onliner.by**
+2. Расширение автоматически найдёт товары на странице
+3. Под каждым товаром появится зелёный бейдж с ценой Shop.by
+4. Клик по бейджу откроет страницу товара на Shop.by
+
+**Никаких настроек не требуется!** Всё работает из коробки.
+
+---
+
+## 🛠️ Сборка из исходников
+
+### Системные требования
+
+- **Операционная система:** Windows 10/11, macOS 10.15+, Ubuntu 20.04+ (или любая современная Linux)
+- **Node.js:** версия 16.0.0 или выше ([скачать](https://nodejs.org/))
+- **pnpm:** версия 8.0.0 или выше (устанавливается через npm)
+- **Свободное место:** ~500 MB (включая node_modules)
+
+### Шаг 1: Установка зависимостей
+
+#### 1.1 Установить Node.js
+
+**Windows/macOS:**
+- Скачай установщик с https://nodejs.org/
+- Запусти установщик
+- Проверь версию: `node --version` (должно быть ≥16.0.0)
+
+**Linux (Ubuntu/Debian):**
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+#### 1.2 Установить pnpm
+
+```bash
+npm install -g pnpm
+```
+
+Проверь версию:
+```bash
+pnpm --version
+# Должно быть ≥8.0.0
+```
+
+### Шаг 2: Клонирование и установка
+
+```bash
+# Если скачал ZIP с исходниками
+unzip source-code.zip
+cd shopby-onliner-overlay
+
+# Или если клонируешь из Git
+git clone https://github.com/qFamouse/shopby-onliner-overlay.git
+cd shopby-onliner-overlay
+
+# Установить зависимости
+pnpm install
+```
+
+**Время установки:** ~30-60 секунд (зависит от скорости интернета)
+
+### Шаг 3: Сборка расширения
+
+#### Для Chrome/Edge/Opera/Brave:
 ```bash
 pnpm build
-# or
-npm run build
+pnpm package
 ```
 
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
+#### Для Firefox:
+```bash
+pnpm build:firefox
+```
 
-## Submit to the webstores
+**Время сборки:** ~10-30 секунд
 
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
+### Шаг 4: Проверка результата
+
+После сборки файлы будут находиться в папке `build/`:
+
+```
+build/
+├── chrome-mv3-prod/           # Папка с расширением для Chrome
+│   ├── manifest.json
+│   ├── background.js
+│   └── ...
+├── chrome-mv3-prod.zip        # ZIP для публикации в Chrome Web Store
+│
+├── firefox-mv2-prod/          # Папка с расширением для Firefox
+│   ├── manifest.json
+│   ├── background.js
+│   └── ...
+└── firefox-mv2-prod.zip       # ZIP для публикации на Firefox Add-ons
+```
+
+---
+
+## 🔍 Как это работает
+
+### Архитектура
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        Content Script                        │
+│  (запускается на catalog.onliner.by и www.onliner.by)      │
+│                                                              │
+│  1. Находит карточки товаров на странице                    │
+│  2. Извлекает название товара                                │
+│  3. Проверяет кеш (Plasmo Storage)                          │
+│  4. Если нет в кеше → отправляет запрос в Background        │
+└──────────────────────┬───────────────────────────────────────┘
+                       │
+                       │ chrome.runtime.sendMessage()
+                       │
+                       ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    Background Worker                         │
+│              (обходит CORS-ограничения)                     │
+│                                                              │
+│  1. Получает запрос от Content Script                       │
+│  2. Делает HTTP-запрос к shop.by/find/                     │
+│  3. Парсит HTML и извлекает цену                            │
+│  4. Отправляет результат обратно                            │
+└──────────────────────┬───────────────────────────────────────┘
+                       │
+                       │ sendResponse()
+                       │
+                       ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    Content Script                            │
+│                                                              │
+│  1. Получает цену от Background                             │
+│  2. Сохраняет в кеш на 6 часов                              │
+│  3. Создаёт зелёный бейдж с ценой                           │
+│  4. Вставляет на страницу                                    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Кеширование
+
+- Результаты поиска кешируются на **6 часов**
+- Используется `@plasmohq/storage` (обёртка над chrome.storage.local)
+- Повторные загрузки страницы **мгновенны** (данные берутся из кеша)
+- Кеш сохраняется даже после перезапуска браузера
+
+### Безопасность
+
+- ✅ **Нет внешней аналитики** — не используем Google Analytics, Sentry и т.п.
+- ✅ **Нет сбора данных** — не собираем и не передаём персональные данные
+- ✅ **Только необходимые разрешения** — только `storage` и доступ к onliner.by/shop.by
+- ✅ **Безопасный HTML** — используем React JSX (автоматический escape)
+- ✅ **Открытый исходный код** — весь код доступен для проверки
+
+---
+
+## 🧪 Разработка
+
+### Режим разработки
+
+```bash
+# Chrome (по умолчанию)
+pnpm dev
+
+# Firefox
+pnpm dev:firefox
+```
+
+Это запустит dev-сервер с hot-reload. Изменения в коде применятся автоматически.
+
+### Загрузка в браузер для тестирования
+
+**Chrome/Edge/Opera/Brave:**
+1. Открой `chrome://extensions/`
+2. Включи "Режим разработчика"
+3. Нажми "Загрузить распакованное расширение"
+4. Выбери папку `build/chrome-mv3-dev/`
+
+**Firefox:**
+1. Открой `about:debugging#/runtime/this-firefox`
+2. Нажми "Загрузить временное дополнение"
+3. Выбери файл `build/firefox-mv2-dev/manifest.json`
+
+---
+
+## 🐛 Известные проблемы
+
+### Предупреждения innerHTML при валидации Firefox
+
+При валидации расширения для Firefox могут появиться предупреждения об использовании `innerHTML`. Это false-positive: Plasmo Framework автоматически использует React JSX, который безопасно экранирует все данные.
+
+### Некоторые товары не находятся на Shop.by
+
+Расширение ищет товары по названию. Если название на Onliner отличается от Shop.by, товар может не найтись. Это ограничение Shop.by API (нет поиска по артикулу/SKU).
+
+---
+
+## 📄 Лицензия
+
+MIT License - см. файл [LICENSE](LICENSE)
+
+---
+
+## 🙏 Благодарности
+
+- [Plasmo Framework](https://www.plasmo.com/) — за отличный фреймворк
+- [Onliner.by](https://onliner.by/) — самый удобный каталог товаров
+- [Shop.by](https://shop.by/) — самый широкий каталог товаров
+
+---
+
+## 📞 Поддержка
+
+Если нашёл баг или есть предложение:
+1. Открой [Issue на GitHub](https://github.com/qFamouse/shopby-onliner-overlay/issues)
+
+---
+
+## 🔐 Политика конфиденциальности
+
+Расширение **не собирает и не передаёт** персональные данные:
+- ❌ Не отслеживаем твою активность
+- ❌ Не отправляем аналитику
+- ❌ Не используем куки для трекинга
+- ✅ Все данные хранятся локально в браузере
+- ✅ Запросы идут только к onliner.by и shop.by
+
+Подробнее: [PRIVACY_POLICY.md](PRIVACY_POLICY.md)
+
+---
+
+## ⚖️ Правовая информация
+
+Это расширение не аффилировано с Onliner.by или Shop.by. Все торговые марки принадлежат их владельцам.
+
+Расширение предоставляется "как есть", без каких-либо гарантий.
+
+---
+
+**Сделано с ❤️ для белорусского интернета**
